@@ -1,0 +1,48 @@
+.section-hurricane {
+    .container {
+        &-hurricane {
+            flex-direction: column;
+            padding-inline: 40px;
+            .wrapper {
+                display: inline-flex;
+                padding: 64px 64px;
+                border-radius: 80px;
+            }
+            .head-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-block: 51px;
+                border-block: 1px solid $gray;
+                .subtext-text {
+                    &-desc {
+                        font-size: $p-xl;
+                        color: $secondary;
+                    }
+                    &-decoration {
+                        max-width: 56px;
+                        margin-bottom: 40px;
+                    }
+                    &-display {
+                        max-width: 354px;
+                        color: $secondary;
+                        margin-bottom: 40px;
+                    }
+
+                    &-project {
+                        .project {
+                            &-desc {
+                                &:first-child {
+                                    margin-bottom: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .line-border {
+                    border-color: $gray;
+                }
+            }
+        }
+    }
+}

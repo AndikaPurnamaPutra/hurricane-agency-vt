@@ -1,0 +1,112 @@
+// @font-face {
+//     font-family: 'icomoon';
+//     src:  url('../assets/icomoon.eot?5vv5sz');
+//     src:  url('assets/icomoon.eot?5vv5sz#iefix') format('embedded-opentype'),
+//       url('../assets/icomoon.ttf?5vv5sz') format('truetype'),
+//       url('../assets/icomoon.woff?5vv5sz') format('woff'),
+//       url('../utilities/assets/icomoon.svg?5vv5sz#icomoon') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: block;
+//   }
+
+/* @font-face kit by Fonts2u (https://fonts2u.com) */
+@font-face {
+    font-family: 'Power Grotesk Regular';
+    src: url('/assets/fonts/powergrotesk-regular-webfont.woff2') format('woff2'),
+         url('/assets/fonts/powergrotesk-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// Font Family
+$fontFamilies: (
+    font-sans:
+        'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+    font-serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+    font-mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    font-inter: '"Inter", sans-serif',
+    font-gilroy: '"Gilroy", sans-serif',
+) !default;
+
+$font-display: "Power Grotesk Regular";
+$font-body: "Satoshi", sans-serif;
+
+// Font Size
+$base: 16px;
+$lh-heading: 110%;
+// $lh-desc: 160%;
+$h1: 110px;
+$h2: 80px;
+$h3: 72px;
+$h4: 64px;
+$h5: 40px;
+$h6: 28px;
+$p-xl: 48px;
+$p-lg-2: 24px;
+$p-lg: 20px;
+$p-md: 16px;
+$p-sm: 14px;
+
+// Heading
+h1 {
+    font-family: $font-display;
+    font-size: $h1;
+    font-weight: 400;
+    line-height: $lh-heading;
+}
+h2 {
+    font-family: $font-display;
+    font-size: $h2;
+    font-weight: 400;
+    line-height: $lh-heading;
+}
+h3 {
+    font-family: $font-display;
+    font-size: $h3;
+    font-weight: 400;
+    line-height: $lh-heading;
+}
+h4 {
+    font-family: $font-display;
+    font-size: $h4;
+    font-weight: 400;
+    line-height: $lh-heading;
+}
+h5 {
+    font-family: $font-display;
+    font-size: $h5;
+    font-weight: 400;
+    line-height: $lh-heading;
+}
+
+// p {
+//     font-family: $font-body;
+//     font-size: $p-md;
+//     line-height: $lh-desc;
+//     font-weight: 400;
+
+//     @include respondsive(md) {
+//         font-size: 1.125em;
+//     }
+// }
+
+// // Description
+// .desc {
+//     font-family: $font-body;
+//     font-size: $p;
+//     font-weight: 400;
+//     line-height: 150%;
+// }
+
+// // Title
+// .title-small {
+//     color: #ffffff;
+// }
+
+body {
+    font-family: $font-body;
+    font-size: $base;
+    color: $black;
+}

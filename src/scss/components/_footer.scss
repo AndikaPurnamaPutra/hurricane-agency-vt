@@ -1,0 +1,25 @@
+.footer {
+	.container {
+		&-footer {
+			.subtext {
+				width: 100%;
+				display: flex;
+				padding-block: 80px;
+				justify-content: space-between;
+				align-items: flex-start;
+				&-text {
+					display: flex;
+					align-items: flex-start;
+					gap: 24px;
+					&-span {
+						color: $dark-gray;
+						font-family: $font-body;
+						font-size: 20px;
+						font-weight: 400;
+						line-height: normal;
+					}
+				}
+			}
+		}
+	}
+}
