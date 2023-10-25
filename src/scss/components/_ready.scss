@@ -1,13 +1,24 @@
 .section-ready {
 	.container {
 		&-ready {
-            flex-direction: column;
-            padding-inline: 40px;
+			flex-direction: column;
+			padding-inline: 40px;
+			@include responsive(md) {
+				padding-inline: 20px;
+			}
 			.wrapper {
 				padding: 80px 80px;
-                border-radius: 80px;
-                display: inline-flex;
-                flex-direction: column;
+				border-radius: 80px;
+				display: inline-flex;
+				flex-direction: column;
+				@include responsive(md) {
+					padding: 54px;
+					border-radius: 64px;
+				}
+				@include responsive(sm) {
+					padding: 40px 20px;
+					border-radius: 35px;
+				}
 			}
 			.head-content {
 				display: flex;
@@ -15,17 +26,34 @@
 				align-items: center;
 				padding-block: 56px;
 				border-block: 1px solid $light-gray-white;
+				@include responsive(md) {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 30px;
+					.line-border {
+						width: 100%;
+					}
+				}
 				.subtext {
 					&-text {
 						padding-block: 23px;
+						@include responsive(md) {
+							width: 100%;
+						}
 						&-display {
 							color: $white;
+							@include responsive(xl) {
+								font-size: 54px;
+							}
+							@include responsive(sm) {
+								font-size: 32px;
+							}
 						}
 					}
-					&-image {
-						display: flex;
-						max-width: 319px;
-						padding-block: 23px;
+				}
+				.btn {
+					@include responsive(sm) {
+						width: 100%;
 					}
 				}
 			}
@@ -33,10 +61,22 @@
 				margin-top: 56px;
 				display: flex;
 				justify-content: space-between;
+				align-items: flex-start;
+				@include responsive(xl) {
+					flex-direction: column;
+					gap: 20px;
+				}
 				.subtext-text {
 					&-menu {
 						display: flex;
+						align-items: flex-start;
+						justify-content: space-between;
 						gap: 80px;
+						@include responsive(md) {
+							width: 100%;
+							flex-direction: column;
+							gap: 20px;
+						}
 						.menu {
 							&-link {
 								display: block;
@@ -44,6 +84,9 @@
 								font-family: $font-body;
 								font-size: $p-lg-2;
 								color: $secondary;
+								@include responsive(md) {
+									font-size: 20px;
+								}
 							}
 						}
 					}
@@ -51,11 +94,17 @@
 						.contact-text {
 							&-display {
 								color: $primary;
+								@include responsive(md) {
+									font-size: 32px;
+								}
 							}
 							&-link {
 								font-size: $p-lg-2;
 								font-family: $font-body;
 								color: $gray;
+								@include responsive(md) {
+									font-size: 20px;
+								}
 							}
 						}
 					}
@@ -63,12 +112,18 @@
 						.office-text {
 							&-display {
 								color: $primary;
+								@include responsive(md) {
+									font-size: 32px;
+								}
 							}
 							&-link {
 								display: flex;
 								font-size: $p-lg-2;
 								font-family: $font-body;
 								color: $gray;
+								@include responsive(md) {
+									font-size: 20px;
+								}
 								&:not(:last-child) {
 									margin-bottom: 8px;
 								}
@@ -78,6 +133,10 @@
 					&:last-child {
 						display: flex;
 						gap: 120px;
+						@include responsive(md) {
+							gap: 20px;
+							flex-direction: column;
+						}
 					}
 				}
 			}

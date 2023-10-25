@@ -3,10 +3,21 @@
         &-hurricane {
             flex-direction: column;
             padding-inline: 40px;
+            @include responsive(md) {
+                padding-inline: 20px;
+            }
             .wrapper {
                 display: inline-flex;
                 padding: 64px 64px;
                 border-radius: 80px;
+                @include responsive(md) {
+                    border-radius: 50px;
+                    padding: 42px;
+                }
+                @include responsive(sm) {
+                    padding-inline: 20px;
+                    border-radius: 35px;
+                }
             }
             .head-content {
                 display: flex;
@@ -14,26 +25,69 @@
                 align-items: center;
                 padding-block: 51px;
                 border-block: 1px solid $gray;
+                gap: 82px;
+                @include responsive(xl) {
+                    gap: 62px;
+                }
+                @include responsive(md) {
+                    flex-direction: column-reverse;
+                    gap: 32px;
+                    padding-block: 32px;
+                }
                 .subtext-text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 40px;
+                    @include responsive(xl) {
+                        gap: 30px;
+                    }
+                    @include responsive(md) {
+                        width: 100%;
+                        gap: 24px;
+                    }
+                    @include responsive(sm) {
+                        gap: 16px;
+                    }
                     &-desc {
                         font-size: $p-xl;
                         color: $secondary;
+                        @include responsive(xl) {
+                            font-size: 26px;
+                        }
+                        @include responsive(sm) {
+                            font-size: 17px;
+                        }
                     }
                     &-decoration {
                         max-width: 56px;
-                        margin-bottom: 40px;
+                        @include responsive(xl) {
+                            max-width: 42px;
+                        }
+                        @include responsive(sm) {
+                            max-width: 32px;
+                        }
                     }
                     &-display {
                         max-width: 354px;
                         color: $secondary;
-                        margin-bottom: 40px;
+                        @include responsive(xl) {
+                            font-size: 54px;
+                        }
+                        @include responsive(sm) {
+                            font-size: 32px;
+                        }
                     }
 
                     &-project {
                         .project {
-                            &-desc {
-                                &:first-child {
-                                    margin-bottom: 40px;
+                            &-desc:first-child {
+                                margin-bottom: 40px;
+                                @include responsive(xl) {
+                                    margin-bottom: 30px;
+                                }
+                                @include responsive(sm) {
+                                    margin-bottom: 16px;
                                 }
                             }
                         }
@@ -41,6 +95,9 @@
                 }
                 .line-border {
                     border-color: $gray;
+                    @include responsive(md) {
+                        width: 100%;
+                    }
                 }
             }
         }

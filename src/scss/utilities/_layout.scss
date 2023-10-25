@@ -2,48 +2,52 @@
 $grid-columns: 12;
 
 @for $i from 1 through $grid-columns {
-    .grid-#{$i} {
-        width: calc($i / $grid-columns) * 100%;
-    }
+	.grid-#{$i} {
+		width: calc($i / $grid-columns) * 100%;
+	}
 }
 // example to html
 // .grid-6 for 50%
 // .grid-12 for 100%
 [class^="grid-"] {
-    @include responsive(md) {
-        width: 100% !important;
-    }
+	@include responsive(md) {
+		width: 100%;
+	}
 }
 
 .line-border {
-    border: 1px solid $gray;
-    &-height {
-        height: 100%;
-        border-color: $gray;
-    }
+	border: 1px solid $gray;
+	&-height {
+		height: 100%;
+		border-color: $gray;
+	}
 }
 
 .bg-dark {
-    background-color: #1c1b1b;
+	background-color: #1c1b1b;
 }
 .bg-dark-light {
-    background-color: #19242c;
+	background-color: #19242c;
 }
 
 // layout for display
 section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 .container {
-    width: 100%;
-    max-width: 1440px;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: row;
-    @include responsive(md) {
-        padding: 0 20px;
-        flex-direction: column;
-    }
+	width: 100%;
+	max-width: 1440px;
+	padding: 0 80px;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	@include responsive(xl) {
+		padding-inline: 40px;
+	}
+	@include responsive(md) {
+		padding: 0 20px;
+		flex-direction: column !important;
+	}
 }

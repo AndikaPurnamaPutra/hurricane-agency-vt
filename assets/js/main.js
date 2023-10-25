@@ -1,87 +1,150 @@
 console.log("hallo");
 
-// Navbar Mobile
-const navbarToggler = document.querySelector(".nav-btn-responsive");
-
-navbarToggler.addEventListener("click", function () {
-	document.querySelector(".nav-office").classList.toggle("active");
-});
-
 // logic respondsive
 
-// const btnRes = document.querySelector('.nav-btn-respondsive');
-// const menu = document.querySelector('.nav-menu');
+const btnRes = document.querySelector(".nav-btn-responsive");
+const menu = document.querySelector(".nav-menu");
 
-// btnRes.addEventListener('click', () => {
-//   menu.classList.toggle('active');
-//   btnRes.classList.toggle('cross');
-// });
+btnRes.addEventListener("click", () => {
+	menu.classList.toggle("active");
+	btnRes.classList.toggle("cross");
+});
 
 // Section Service
 
 const image = document.querySelector(".img-service");
 const subtextListItems = document.querySelectorAll(".subtext-list-display");
 
-// Aktifkan subtext-list default saat halaman dimuat pertama kali
+let activeSubtextListItem = null; // Menyimpan referensi ke elemen yang sedang aktif
+
+// Aktifkan subtext-list "Advertisements Production" saat halaman dimuat pertama kali
 const defaultSubtextListItem = subtextListItems[0];
 defaultSubtextListItem.classList.add("active");
+activeSubtextListItem = defaultSubtextListItem;
 
-defaultSubtextListItem.addEventListener("click", () => {
-	// Hapus kelas 'active' dari semua subtext-list
-	subtextListItems.forEach((subtextItem) =>
-		subtextItem.classList.remove("active")
-	);
-
-	// Tambahkan kelas 'active' hanya untuk subtext-list default
-	defaultSubtextListItem.classList.add("active");
+defaultSubtextListItem.addEventListener("mouseenter", () => {
 	changeImage(defaultSubtextListItem);
 });
 
 subtextListItems.forEach((item) => {
 	item.addEventListener("mouseenter", () => {
-		const imagePath = item.getAttribute("data-image");
-        
-		image.style.opacity = 0;
-        image.style.transform = "scale(0)";
+		changeImage(item);
+	});
 
-		setTimeout(() => {
-			image.src = imagePath;
-		}, 300);
+	item.addEventListener("click", (e) => {
+		e.preventDefault();
 
-		setTimeout(() => {
-			image.style.opacity = 1;
-            image.style.transform = "scale(1)";
-		}, 310);
+		// Cek jika elemen yang diklik adalah elemen yang sudah aktif, maka jangan lakukan apa-apa
+		if (activeSubtextListItem === item) {
+			return;
+		}
 
-		// Hapus kelas 'active' dari semua subtext-list
-		subtextListItems.forEach((subtextItem) =>
-			subtextItem.classList.remove("active")
-		);
+		// Non-active elemen "Advertisements Production" yang sebelumnya aktif
+		if (activeSubtextListItem) {
+			activeSubtextListItem.classList.remove("active");
+		}
 
-		// Tambahkan kelas 'active' hanya untuk subtext-list yang diklik
+		// Aktifkan elemen yang baru diklik
 		item.classList.add("active");
+		activeSubtextListItem = item;
 	});
 });
+
+function changeImage(item) {
+	const imagePath = item.getAttribute("data-image");
+
+	image.style.opacity = 0;
+	image.style.transform = "scale(0)";
+
+	setTimeout(() => {
+		image.src = imagePath;
+		image.style.opacity = 1;
+		image.style.transform = "scale(1)";
+	}, 300); // Mengatur `setTimeout` menjadi hanya 1 milidetik
+}
+
 
 $(document).ready(function () {
 	$(".work-slider").slick({
 		variableWidth: true,
-		// autoplay: true,
 		arrows: false,
-		// autoplaySpeed: 0,
-		// slidesToShow: 1,
-		// speed: 5000,
-		// // responsive: [
-		// // 	{
-		// // 		breakpoint: 480,
-		// // 		settings: {
-		// // 			speed: 5000,
-		// // 		},
-		// // 	},
-		// // ],
 		slidesToShow: 3,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 2000,
+		infinite: true,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+				},
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+				},
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					centerMode: true,
+				}
+			}
+		]
 	});
 });
+
+// AOS
+AOS.init({
+	disable: function () {
+		var maxWidth = 800;
+		return window.innerWidth < maxWidth;
+	},
+	duration: 1200,
+	easing: "ease-in-out", // default easing for AOS animations
+	once: true, // whether animation should happen only once - while scrolling down
+	mirror: false, // whether elements should animate out while scrolling past them
+	anchorPlacement: "top-bottom",
+});
+
+//refresh animations
+$(window).on('load', function () {
+	AOS.refresh();
+});
+
+// logic copy clipboard
+
+const copyButtonLabel = "Components";
+
+// use a class selector if available
+let blocks = document.querySelectorAll("pre");
+
+blocks.forEach((block) => {
+    // only add button if browser supports Clipboard API
+    if (navigator.clipboard) {
+        let button = document.createElement("button");
+
+        button.innerText = copyButtonLabel;
+        block.appendChild(button);
+
+        button.addEventListener("click", async () => {
+            await copyCode(block, button);
+        });
+    }
+});
+
+async function copyCode(block, button) {
+    let code = block.querySelector("code");
+    let text = code.innerText;
+
+    await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerText = "Code Copied!";
+
+    setTimeout(() => {
+        button.innerText = copyButtonLabel;
+    }, 700);
+}

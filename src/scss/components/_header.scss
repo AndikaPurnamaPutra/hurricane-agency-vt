@@ -1,19 +1,55 @@
 .section-header {
     .container {
         &-header {
-            padding-block: 80px !important;
+            padding-block: 80px;
             flex-direction: column !important;
+            @include responsive(md) {
+                padding-block: 40px;
+            }
             .head-content {
                 padding-bottom: 40px;
                 border-bottom: 1px solid $light-gray-white;
+                @include responsive(sm) {
+                    padding-bottom: 24px;
+                }
                 .subtext {
                     display: flex;
                     align-items: center;
+                    @include responsive(md) {
+                        flex-direction: column-reverse;
+                        align-items: flex-start;
+                        gap: 40px;
+                    }
+                    @include responsive(sm) {
+                        gap: 16px;
+                    }
+                    &-display {
+                        @include responsive(xl) {
+                            font-size: 74px;
+                        }
+                        @include responsive(md) {
+                            width: 100%;
+                        }
+                        @include responsive(sm) {
+                            font-size: 32px;
+                        }
+                    }
                     &-text {
                         display: flex;
                         flex-direction: column;
                         gap: 63px;
                         text-align: end;
+                        @include responsive(xl) {
+                            gap: 36px;
+                        }
+                        @include responsive(md) {
+                            text-align: start;
+                            gap: 16px;
+                            width: 100%;
+                        }
+                        @include responsive(sm) {
+                            gap: 12px;
+                        }
                         &-span {
                             font-size: $p-sm;
                         }
@@ -23,14 +59,36 @@
             .body-content {
                 display: flex;
                 padding-top: 40px;
+                align-items: center;
+                @include responsive(md) {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+                @include responsive(sm) {
+                    padding-top: 24px;
+                    gap: 24px;
+                }
                 .subtext-text {
                     display: flex;
                     flex-direction: column;
                     gap: 32px;
+                    @include responsive(xl) {
+                        gap: 24px;
+                    } 
+                    @include responsive(md) {
+                        width: 100%;
+                        gap: 16px;
+                    }
                     &-profile {
                         display: flex;
                         .img-profile {
                             max-width: 80px;
+                            @include responsive(xl) {
+                                max-width: 56px;
+                            }
+                            @include responsive(sm) {
+                                max-width: 42px;
+                            }
                             &-left {
                                 margin-left: -10px;
                                 z-index: -1;
@@ -43,7 +101,27 @@
                 }
                 .subtext-image {
                     display: inline-flex;
-                    // max-width: 990px;
+                    position: relative;
+                    @include responsive(md) {
+                        width: 100%;
+                    }
+                    @include responsive(sm) {
+                        flex-direction: column;
+                        gap: 24px;
+                    }
+                    .btn-lg {
+                        position: absolute;
+                        right: 15px;
+                        bottom: 10px;
+                        @include responsive(md) {
+                            right: 24px;
+                        }
+                        @include responsive(sm) {
+                            position: relative;
+                            right: 0;
+                            bottom: 0;
+                        }
+                    }
                 }
             }
         }

@@ -3,14 +3,26 @@
 		&-work {
 			flex-direction: column;
 			padding-block: 80px;
+			@include responsive(md) {
+				padding-block: 40px;
+			}
 			.head-content {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				padding-bottom: 40px;
+				@include responsive(sm) {
+					flex-direction: column;
+					gap: 16px;
+				}
 				.subtext-text {
 					display: flex;
 					align-items: center;
+					@include responsive(sm) {
+						flex-direction: column;
+						align-items: flex-start;
+						width: 100%;
+					}
 					&-display {
 						color: $primary;
 					}
@@ -19,12 +31,17 @@
 						span {
 							font-size: 32px;
 							margin: 0 30px;
+							@include responsive(sm) {
+								margin-left: 0;
+							}
 						}
+					}
+					.btn {
+						width: 100%;
 					}
 				}
 			}
 			.body-content {
-				// padding-block: 51px;
 				border-block: 1px solid $light-gray-white;
 				.slick-track {
 					display: flex;
@@ -36,6 +53,12 @@
 					flex-direction: column;
 					position: relative;
 					max-width: 400px;
+					@include responsive(md) {
+						max-width: 345px;
+					}
+					@include responsive(sm) {
+						max-width: 310px;
+					}
 					&-image {
 						display: inline-flex;
 						img {
@@ -73,6 +96,15 @@
                         transform: scale(0);
                         opacity: 0;
                         transition: all 300ms ease;
+						@include responsive(md) {
+							width: 80px;
+							top: -30px;
+							right: -30px;
+						}
+						@include responsive(sm) {
+							top: -20px;
+							right: -10px;
+						}
 					}
                     &:hover {
                         .card-body {

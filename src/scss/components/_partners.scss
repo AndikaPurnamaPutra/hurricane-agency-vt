@@ -1,47 +1,77 @@
 .section-partners {
-    .container {
-        &-partners {
-            padding-block: 80px;
-            flex-direction: column;
-            .head-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-bottom: 40px;
-                border-bottom: 1px solid $light-gray-white;
-                .subtext-text {
-                    display: flex;
-                    align-items: center;
-                    &-display {
-                        color: $primary;
-                    }
-                    &-span {
-                        font-size: $p-lg;
-                        span {
-                            font-size: 32px;
-                            margin: 0 30px;
-                        }
-                    }
-                }
-            }
-            .body-content {
-                display: flex;
-                flex-direction: column;
-                gap: 80px;
-                padding-block: 80px;
-                border-bottom: 1px solid $light-gray-white;
-                .subtext-logo {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    &-item {
-                        display: flex;
-                        .img-logo {
-                            max-height: 40px;
-                        }
-                    }
-                }
-            }
-        }
-    }
+	.container {
+		&-partners {
+			padding-block: 80px;
+			flex-direction: column;
+			@include responsive(md) {
+				padding-block: 40px;
+			}
+			.head-content {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding-bottom: 40px;
+				border-bottom: 1px solid $light-gray-white;
+				@include responsive(md) {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 16px;
+				}
+				.subtext-text {
+					display: flex;
+					align-items: center;
+					@include responsive(md) {
+						width: 100%;
+					}
+					@include responsive(sm) {
+						flex-direction: column;
+						align-items: flex-start;
+					}
+					&-display {
+						color: $primary;
+					}
+					&-span {
+						font-size: $p-lg;
+						span {
+							font-size: 32px;
+							margin: 0 30px;
+							@include responsive(sm) {
+								margin-left: 0;
+							}
+						}
+					}
+					.btn {
+						@include responsive(md) {
+							width: 100%;
+						}
+					}
+				}
+			}
+			.body-content {
+				display: flex;
+				flex-direction: column;
+				gap: 80px;
+				padding-block: 80px;
+				border-bottom: 1px solid $light-gray-white;
+				.subtext-logo {
+					display: grid;
+					grid-template-columns: repeat(5, 1fr);
+					column-gap: 40px;
+					row-gap: 80px;
+					@include responsive(md) {
+						grid-template-columns: repeat(4, 1fr);
+					}
+					@include responsive(sm) {
+						grid-template-columns: repeat(2, 1fr);
+					}
+					&-item {
+						display: flex;
+						.img-logo {
+							max-height: 40px;
+						}
+					}
+				}
+			}
+		}
+	}
 }
