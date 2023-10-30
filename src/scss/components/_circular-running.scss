@@ -1,0 +1,59 @@
+.section-circular-running {
+	max-width: 1920px;
+	width: 100%;
+	overflow: hidden;
+    background-color: $primary;
+    padding-block: 60px;
+	@include responsive(md) {
+		max-width: 800px;
+		padding-block: 30px;
+	}
+	.running {
+		width: 2000px;
+		@include flex(row, center, center !important);
+        gap: 30px;
+		transform: translateX(100%);
+		animation: runstudio 20s linear infinite;
+        @keyframes runstudio {
+            from {
+            transform: translateX(100%);
+            }
+            to {
+            transform: translateX(-100%);
+            }
+        };
+		@include responsive(md) {
+			width: 900px;
+			animation-duration: 15s;
+		}
+		&-wrapper {
+			@include flex(row, center, center);
+			width: auto;
+            flex-shrink: 0;
+            gap: 30px;
+			.content {
+				&-display {
+					flex-shrink: 0;
+					color: $black;
+					font-family: $font-display;
+					font-size: 156px;
+					font-weight: 500;
+					line-height: 98%; /* 152.88px */
+					letter-spacing: -6.24px;
+                    &.text-secondary {
+                        font-style: italic;
+                    }
+					@include responsive(xl) {
+						font-size: 136px;
+					}
+					@include responsive(md) {
+						font-size: 102px;
+					}
+					@include responsive(sm) {
+						font-size: 72px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+.section-description {
+    padding-block: 100px;
+	@include responsive(md) {
+		padding-block: 50px;
+	}
+	.container {
+		&-description {
+            justify-content: center;
+			.subtext {
+                @include flex(column, flex-start, center);
+                gap: 52px;
+				@include responsive(md) {
+					gap: 24px;
+				}
+                &-text {
+                    width: 1020px;
+					@include responsive(xl) {
+						width: 820px;
+					}
+					@include responsive(md) {
+						width: 100%;
+					}
+					&-display {
+						color: $black;
+						font-family: $font-display;
+						font-size: 72px;
+						font-weight: 400;
+						line-height: 120%; /* 86.4px */
+						letter-spacing: -1.44px;
+                        max-width: 896px;
+						@include responsive(xl) {
+							font-size: 56px;
+							max-width: 674px;
+						}
+						@include responsive(md) {
+							width: 100%;
+						}
+						@include responsive(sm) {
+							font-size: 32px;
+						}
+					}
+					&-desc {
+						color: $gray;
+						font-family: $font-body;
+						font-size: 20px;
+						font-weight: 500;
+						line-height: 132%; /* 26.4px */
+						letter-spacing: -0.2px;
+                        max-width: 913px;
+                        float: inline-end;
+						@include responsive(xl) {
+							max-width: 772px;
+						}
+						@include responsive(md) {
+							width: 100%;
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

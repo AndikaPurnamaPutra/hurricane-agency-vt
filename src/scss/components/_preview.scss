@@ -1,0 +1,17 @@
+.section-preview {
+    padding-block: 50px;
+	.container {
+		&-preview {
+			.content-preview {
+				position: relative;
+                @include flex(row, center,center);
+				.btn-icon {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

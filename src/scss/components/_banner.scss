@@ -1,0 +1,39 @@
+.section-banner {
+    padding-block: 30px;
+	.container {
+		&-banner {
+			.subtext {
+				@include flex(row, center, space-between);
+				width: 100%;
+                padding-block: 30px;
+                border-block: 1px solid $gray;
+				@include responsive(md) {
+					@include flex(column, flex-start, space-between);
+						gap: 16px
+				}
+				&-text {
+					@include flex(row, center, space-between);
+					gap: 399px;
+					@include responsive(xl) {
+						gap: 230px;
+					}
+					@include responsive(md) {
+						width: 100%;
+						gap: unset;
+					}
+					&-subtitle {
+						color: $black;
+						font-family: $font-display;
+						font-size: 24px;
+						font-weight: 500;
+						line-height: 110%; /* 26.4px */
+						letter-spacing: -0.48px;
+						@include responsive(md) {
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

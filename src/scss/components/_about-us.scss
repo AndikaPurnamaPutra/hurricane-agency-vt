@@ -1,0 +1,73 @@
+.section-about-us {
+    padding-block: 60px;
+	padding-block: 30px;
+	.container {
+		&-about-us {
+			gap: 66px;
+			padding: 40px 80px;
+			@include responsive(md) {
+				padding: 20px 40px;
+				gap: 33px;
+			}
+			.head-content {
+				@include responsive(md) {
+					width: 100%;
+				}
+			}
+			.body-content {
+				@include flex(column, flex-start, space-between);
+				@include responsive(md) {
+					width: 100%;
+					gap: 16px;
+				}
+				.subtext {
+					width: 100%;
+					@include flex(column, flex-start, flex-start);
+					gap: 30px;
+					&-text {
+						width: inherit;
+						@include flex(row, center, space-between);
+						&-label {
+							color: $black;
+							font-family: $font-body;
+							font-size: 20px;
+							font-weight: 500;
+							line-height: 132%; /* 26.4px */
+							letter-spacing: -0.2px;
+							@include responsive(md) {
+								font-size: 14px;
+							}
+						}
+						&-display {
+							color: $black;
+							font-family: $font-display;
+							font-size: 72px;
+							font-weight: 400;
+							line-height: 120%; /* 86.4px */
+							letter-spacing: -1.44px;
+							@include responsive(xl) {
+								font-size: 56px;
+							}
+							@include responsive(sm) {
+								font-size: 32px;
+							}
+						}
+						&-desc {
+							color: $gray;
+							font-family: $font-body;
+							font-size: 20px;
+							font-weight: 500;
+							line-height: 132%; /* 26.4px */
+							letter-spacing: -0.2px;
+                            max-width: 405px;
+							@include responsive(md) {
+								max-width: 100%;
+								font-size: 16px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

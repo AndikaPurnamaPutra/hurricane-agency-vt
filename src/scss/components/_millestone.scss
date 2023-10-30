@@ -1,0 +1,121 @@
+.section-millestone {
+    padding-block: 120px;
+	@include responsive(md) {
+		padding-block: 60px;
+	}
+	.container {
+		&-millestone {
+			@include flex(column, center, center);
+            gap: 160px;
+			@include responsive(md) {
+				gap: 80px;
+			}
+			@include responsive(sm) {
+				gap: 40px;
+			}
+			.card-items {
+				// @include flex(row, center, space-between);
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+				@include responsive(md) {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 24px;
+				}
+				@include responsive(sm) {
+					grid-template-columns: repeat(1, 1fr);
+				}
+				.card {
+					display: inline-flex;
+					position: relative;
+					&-content {
+						position: absolute;
+						bottom: 32px;
+						left: 32px;
+						max-width: 231px;
+						@include responsive(xl) {
+							bottom: 24px;
+							left: 24px;
+							max-width: 182px;
+						}
+						.content {
+							&-icon {
+								max-width: 56px;
+								margin-bottom: 24px;
+								@include responsive(xl) {
+									max-width: 46px;
+								}
+							}
+							&-title {
+								color: $white;
+								font-family: $font-body;
+								font-size: 32px;
+								font-weight: 400;
+								line-height: 120%; /* 38.4px */
+								letter-spacing: -0.64px;
+								margin-bottom: 32px;
+								@include responsive(xl) {
+									font-size: 26px;
+								}
+							}
+						}
+					}
+				}
+			}
+			.body-content {
+				@include flex(row, flex-start, center);
+				gap: 150px;
+				@include responsive(md) {
+					gap: 75px;
+				}
+				@include responsive(sm) {
+					gap: 40px;
+				}
+				@include responsive(sm) {
+					flex-direction: column;
+				}
+				.subtext {
+					
+					@include flex(column, flex-start, flex-start);
+					gap: 120px;
+					@include responsive(md) {
+						gap: 60px;
+						align-items: center;
+						text-align: center;
+					}
+					@include responsive(sm) {
+						gap: 40px;
+					}
+					&-desc {
+						max-width: 334px;
+						color: $gray;
+						font-family: $font-body;
+						font-size: 20px;
+						font-weight: 500;
+						line-height: 132%; /* 26.4px */
+						letter-spacing: -0.2px;
+						@include responsive(md) {
+							font-size: 16px;
+						}
+					}
+					&-count {
+						color: $black;
+						font-family: $font-display;
+						font-size: 120px;
+						font-weight: 400;
+						line-height: 110%; /* 132px */
+						letter-spacing: -2.4px;
+						@include responsive(xl) {
+							font-size: 98px;
+						}
+						@include responsive(md) {
+							font-size: 68px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
