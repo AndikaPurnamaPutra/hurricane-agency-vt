@@ -1,141 +1,33 @@
 .footer {
-    padding-block: 60px;
-	background-color: $black;
-	@include responsive(md) {
-		padding-bottom: 30px;
-	}
 	.container {
 		&-footer {
-            @include flex(column, center, space-between);
-            gap: 78px;
-			.head-content {
-				@include flex(row, flex-start, space-between);
-				width: 100%;
-				@include responsive(md) {
-					flex-direction: column;
-					gap: 24px;
-				}
-				.subtext {
-					@include flex(row, flex-start, space-between);
-					@include responsive(md) {
-						flex-direction: column;
-						gap: 24px;
-						width: 100% !important;
-					}
-					&-text {
-						@include flex(column, flex-start);
-						gap: 20px;
-						&-logo {
-							display: inline-flex;
-							max-width: 152px;
-						}
-						&-label {
-							color: $gray;
-							font-family: $font-body;
-							font-size: 16px;
-							font-weight: 400;
-							line-height: 135%; /* 21.6px */
-							letter-spacing: 0.08px;
-						}
-						&-subtitle {
-							color: $white;
-							font-family: $font-body;
-							font-size: 18px;
-							font-weight: 500;
-							line-height: 135%; /* 24.3px */
-							letter-spacing: 0.9px;
-						}
-						.wrapper {
-							@include flex(column, flex-start, center);
-							gap: 10px;
-							.nav-link {
-								color: $gray;
-								font-family: $font-body;
-								font-size: 18px;
-								font-weight: 500;
-								line-height: 135%; /* 24.3px */
-								letter-spacing: 0.9px;
-								transition: all 300ms ease;
-								&:hover {
-									color: $white;
-								}
-							}
-						}
-						&.company {
-							@include flex(column, flex-start);
-							gap: 17px;
-							.subtext-text-label {
-								max-width: 174px;
-							}
-						}
-					}
-					form {
-						position: relative;
-						border-bottom: 1px solid $white;
-						width: 100%;
-						input {
-							width: inherit;
-							background-color: transparent;
-							border: none;
-							color: $white;
-							font-family: $font-body;
-							font-size: 20px;
-							font-weight: 500;
-							line-height: 132%; /* 26.4px */
-							letter-spacing: -0.2px;
-							padding: 10px;
-							padding-left: 0;
-							outline: none;
-							&:focus {
-								outline: inherit;
-							}
-						}
-						.btn-icon {
-							position: absolute;
-							top: 50%;
-							right: 0;
-							transform: translate(0, -50%);
-						}
-					}
-					&.subscribe {
-						flex-direction: column;
-						gap: 30px;
-					}
-				}
+			padding-block: 80px;
+			@include responsive(md) {
+				padding-block: 40px;
 			}
-			.body-content {
-                @include flex(row, center, space-between);
-                width: 100%;
-				@include responsive(md) {
-					@include flex(column, flex-start);
+			.subtext {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				@include responsive(sm) {
+					flex-direction: column;
+					gap: 16px;
+				}
+				&-text {
+					display: flex;
+					align-items: flex-start;
 					gap: 24px;
-				}
-				.subtext-label {
-					color: $gray;
-					font-family: $font-body;
-					font-size: 16px;
-					font-weight: 400;
-					line-height: 135%; /* 21.6px */
-					letter-spacing: 0.08px;
-				}
-				.social-media {
-                    @include flex(row, center);
-                    gap: 50px;
-					@include responsive(md) {
-						gap: 10px;
-						@include flex(column, flex-start);
+					@include responsive(sm) {
+						flex-direction: column;
+						gap: 16px;
 					}
-					.nav-link {
-						color: $gray;
+					&-span {
+						color: $dark-gray;
 						font-family: $font-body;
-						font-size: 18px;
-						font-weight: 500;
-						line-height: 135%; /* 24.3px */
-						letter-spacing: 0.9px;
-						transition: all 300ms ease;
-						&:hover {
-							color: $white;
-						}
+						font-size: 20px;
+						font-weight: 400;
+						line-height: normal;
 					}
 				}
 			}

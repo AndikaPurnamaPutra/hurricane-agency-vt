@@ -1,130 +1,129 @@
 .section-header {
-	background-color: $black;
-	padding-top: 136px;
-	padding-bottom: 60px;
-	background-image: url(../../../assets/image/circular-header-decoration.svg);
-	background-repeat: no-repeat;
-	background-position: 103% 60%;
-	background-size: 2000px;
-	@include responsive(xxxxl) {
-		background-position: 103% 60%;
-	}
-	@include responsive(xxxl) {
-		background-position: -2.5% 60%;
-	}
-	@include responsive(xxl) {
-		background-size: cover;
-		background-position: 192px 60%;
-	}
-	@include responsive(md) {
-		padding-top: 90px;
-		padding-bottom: 30px;
-	}
-	@include responsive(sm) {
-		background-image: none;
-	}
-	.container {
-		&-header {
-			position: relative;
-			.subtext {
-				@include responsive(md) {
-					@include flex(column, flex-start,flex-start);
-					gap: 16px;
-				}
-				&-text {
-					@include flex(column, flex-start, space-between);
-					gap: 26px;
-					@include responsive(md){
-						gap: 16px;
-					}
-					&-display {
-						color: $primary;
-						font-family: $font-display;
-						font-size: 196px;
-						font-weight: 400;
-						line-height: 98%; /* 192.08px */
-						letter-spacing: -7.84px;
-						@include responsive(xl) {
-							font-size: 136px;
-						}
-						@include responsive(md) {
-							font-size: 104px;
-							letter-spacing: -4.84px;
-						}
-						@include responsive(sm) {
-							font-size: 54px;
-							letter-spacing: -2.84px;
-						}
-						.btn-icon {
-							margin-left: 62px;
-							@include responsive(md) {
-								margin-left: 28px;
-							}
-							@include responsive(sm) {
-								margin-left: 0;
-							}
-							img {
-								max-width: 119px;
-								@include responsive(xl) {
-									max-width: 92px;
-								}
-								@include responsive(md) {
-									max-width: 74px;
-								}
-								@include responsive(sm) {
-									max-width: 32px;
-								}
-							}
-						}
-					}
-					&-subtext {
-						color: $white;
-						font-family: $font-body;
-						font-size: 20px;
-						font-weight: 500;
-						line-height: 110%; /* 22px */
-						letter-spacing: 1px;
-						@include responsive(md) {
-							font-size: 16px;
-						} 
-					}
-					&-desc {
-						color: $white;
-						font-family: $font-body;
-						font-size: 20px;
-						font-weight: 500;
-						line-height: 132%; /* 26.4px */
-						letter-spacing: -0.2px;
-						position: absolute;
-						top: 30px;
-						right: 192px;
-						max-width: 159px;
-						@include responsive(xl) {
-							right: 126px;
-						}
-						@include responsive(md) {
-							position: relative;
-							top: 0;
-							right: 0;
-							max-width: 100%;
-							font-size: 16px;
-						}
-					}
-					.wrapper {
-						display: flex;
-						justify-content: space-between;
-						width: 960px;
-						@include responsive(xl) {
-							width: 628px;
-						}
-						@include responsive(md) {
-							width: 100%;
-							flex-direction: column;
-							gap: 16px;
-						}
-					}
-				}
-			}
-		}
-	}
+    .container {
+        &-header {
+            padding-block: 80px;
+            flex-direction: column !important;
+            @include responsive(md) {
+                padding-block: 40px;
+            }
+            .head-content {
+                padding-bottom: 40px;
+                border-bottom: 1px solid $light-gray-white;
+                @include responsive(sm) {
+                    padding-bottom: 24px;
+                }
+                .subtext {
+                    display: flex;
+                    align-items: center;
+                    @include responsive(md) {
+                        flex-direction: column-reverse;
+                        align-items: flex-start;
+                        gap: 40px;
+                    }
+                    @include responsive(sm) {
+                        gap: 16px;
+                    }
+                    &-display {
+                        @include responsive(xl) {
+                            font-size: 74px;
+                        }
+                        @include responsive(md) {
+                            width: 100%;
+                        }
+                        @include responsive(sm) {
+                            font-size: 32px;
+                        }
+                    }
+                    &-text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 63px;
+                        text-align: end;
+                        @include responsive(xl) {
+                            gap: 36px;
+                        }
+                        @include responsive(md) {
+                            text-align: start;
+                            gap: 16px;
+                            width: 100%;
+                        }
+                        @include responsive(sm) {
+                            gap: 12px;
+                        }
+                        &-span {
+                            font-size: $p-sm;
+                        }
+                    }
+                }
+            }
+            .body-content {
+                display: flex;
+                padding-top: 40px;
+                align-items: center;
+                @include responsive(md) {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+                @include responsive(sm) {
+                    padding-top: 24px;
+                    gap: 24px;
+                }
+                .subtext-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                    @include responsive(xl) {
+                        gap: 24px;
+                    } 
+                    @include responsive(md) {
+                        width: 100%;
+                        gap: 16px;
+                    }
+                    &-profile {
+                        display: flex;
+                        .img-profile {
+                            max-width: 80px;
+                            @include responsive(xl) {
+                                max-width: 56px;
+                            }
+                            @include responsive(sm) {
+                                max-width: 42px;
+                            }
+                            &-left {
+                                margin-left: -10px;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                    &-desc {
+                        line-height: 170%;
+                    }
+                }
+                .subtext-image {
+                    display: inline-flex;
+                    position: relative;
+                    @include responsive(md) {
+                        width: 100%;
+                    }
+                    @include responsive(sm) {
+                        flex-direction: column;
+                        gap: 24px;
+                    }
+                    .btn-lg {
+                        position: absolute;
+                        right: 15px;
+                        bottom: 10px;
+                        @include responsive(md) {
+                            right: 24px;
+                        }
+                        @include responsive(sm) {
+                            position: relative;
+                            right: 0;
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
